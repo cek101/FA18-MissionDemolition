@@ -29,7 +29,7 @@ public class MissionDemolition : MonoBehaviour {
     public string           showing = "Show Slingshot"; // followCam mode
 
     void Start () {
-        S = this;
+        S = this;  // define the singleton
 
         level = 0;
         levelMax = castles.Length;
@@ -37,19 +37,19 @@ public class MissionDemolition : MonoBehaviour {
 	}
 
     void StartLevel() {
-        // get rid of the old castle if one xists
+        // get rid of the old castle if one exists
         if (castle != null) {
             Destroy(castle);
         }
 
         // destroy old projectiles if they exist
-        GameObject[] gos = GameObject.FindGameObjectsWithTag("Projectiles");
+        GameObject[] gos = GameObject.FindGameObjectsWithTag("Projectile");
         foreach (GameObject pTemp in gos) {
             Destroy(pTemp);
         }
 
         // instantiate the new castle
-        castle = Instantiate<GameObject>(castles[level]);
+        castle = Instantiate<GameObject>( castles[level] );
         castle.transform.position = castlePos;
         shotsTaken = 0;
 

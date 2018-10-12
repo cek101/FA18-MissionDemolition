@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -229,12 +229,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 647235498}
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 647235504}
+        m_MethodName: SwitchView
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -378,7 +378,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.023985418, g: 0.4799485, b: 0.7264151, a: 0}
+  m_BackGroundColor: {r: 0.023529416, g: 0.48772284, b: 0.7254902, a: 0}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
@@ -466,11 +466,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a4e82b168a3ab547bd7a74b47076a49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uitLevel: {fileID: 0}
-  uitShots: {fileID: 0}
-  uitButton: {fileID: 0}
-  castlePos: {x: 0, y: 0, z: 0}
-  castles: []
+  uitLevel: {fileID: 994277089}
+  uitShots: {fileID: 1254340240}
+  uitButton: {fileID: 1553743751}
+  castlePos: {x: 50, y: -9.5, z: 0}
+  castles:
+  - {fileID: 1593884293998244, guid: 98d5b3a46f47973428e5b3d4c4f0332c, type: 2}
+  - {fileID: 1970093626451670, guid: bb9cc72a648c3bb4590bd8d8cb5c89f3, type: 2}
+  - {fileID: 1256616983236060, guid: 2e3ccfd81161b27489c3b2c7fedf65cc, type: 2}
+  - {fileID: 1945566705119512, guid: 1c17ddbfcb23720459bd7c5edffc9b0a, type: 2}
   level: 0
   levelMax: 0
   shotsTaken: 0
@@ -1022,14 +1026,14 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 16
     m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 1
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
-    m_RichText: 1
+    m_RichText: 0
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1

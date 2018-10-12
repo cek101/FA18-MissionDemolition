@@ -7,6 +7,8 @@ public class Goal : MonoBehaviour {
     static public bool goalMet = false;
 
     void OnTriggerEnter(Collider other) {
+        Debug.Log("TriggerFired");
+        
         //when the trigger is hit by something
         // check to see if it's a projectile
         if (other.gameObject.tag == "Projectile")   {
@@ -18,17 +20,6 @@ public class Goal : MonoBehaviour {
         c.a = 1;
         mat.color = c;
         
-            }
-        
+        }
     }
-
-    // Use this for initialization
-    //void Start () {
-		
-	//}
-	
-	// Update is called once per frame
-	//void Update () {
-		
-	//}
 }

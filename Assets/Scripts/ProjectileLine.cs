@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProjectileLine : MonoBehaviour
-{
+public class ProjectileLine : MonoBehaviour {
     static public ProjectileLine S; //singleton
 
     [Header("Set in Inspector")]
@@ -13,8 +12,7 @@ public class ProjectileLine : MonoBehaviour
     private GameObject _poi;
     private List<Vector3> points;
 
-    void Awake()
-    {
+    void Awake()    {
         S = this; //set the singleton
         //get a reference to the LineRenderer
         line = GetComponent<LineRenderer>();
@@ -25,42 +23,37 @@ public class ProjectileLine : MonoBehaviour
     }
 
     // this is a property (that is, a method masquerading as a field)
-    public GameObject poi
-    {
-        get
-        {
+    public GameObject poi    {
+        get { 
             return (_poi);
         }
-        set
-        {
+        set {
             _poi = value;
             // when _poi is set to something new, it resets everything
             line.enabled = false;
             points = new List<Vector3>();
-            AddPoint();
+            
         }
     }
 
 
     // this can be used to clear the line directly
-    public void Clear()
-    {
+    public void Clear() {
         _poi = null;
         line.enabled = false;
         points = new List<Vector3>();
 
     }
-    public void AddPoint()
-    {
+    public void AddPoint()  { 
         //this is called to add a point to the line
         Vector3 pt = _poi.transform.position;
-        if (points.Count > 0 && (pt-lastPoint).magnitude < minDist)
+        
+        if (points.Count > 0 && (pt - lastPoint).magnitude < minDist)
         {
             // if the point isn't far enough from the last point, it returns
             return;
         }
-        if (points.Count == 0)
-        {  // if this is the launch point...
+        if (points.Count == 0)  {  // if this is the launch point...
             Vector3 launchPosDiff = pt - Slingshot.LAUNCH_POS; // to be defined
                                                                //... it adds an extra bit of line to aid aiming later
             points.Add(pt + launchPosDiff);
@@ -71,9 +64,7 @@ public class ProjectileLine : MonoBehaviour
             line.SetPosition(1, points[1]);
             // enables LineRenderer
             line.enabled = true;
-        }
-        else
-        {
+        } else {
             //normal behavior of adding a point
             points.Add(pt);
             line.positionCount = points.Count;
@@ -83,6 +74,18 @@ public class ProjectileLine : MonoBehaviour
         }
 
     }
+
+    // returns the location of the most recently added point
+    public Vector3 lastPoint {
+        get {
+            if (points == null) {
+                // if there are no points, returns Vector3.zero
+                return (Vector3.zero);
+            }
+            return (points[points.Count - 1]);
+        }
+    }
+    
     // Use this for initialization
     void FixedUpdate() {
         if (poi == null) {

@@ -31,6 +31,7 @@ public class Slingshot : MonoBehaviour {
         Transform launchPointTrans = transform.Find("LaunchPoint");
         launchPoint = launchPointTrans.gameObject;
         launchPoint.SetActive(false);
+        launchPos = launchPointTrans.position;
     }
 
     void OnMouseEnter() {
@@ -86,6 +87,8 @@ public class Slingshot : MonoBehaviour {
             projectileRigidbody.isKinematic = false;
             projectileRigidbody.velocity = -mouseDelta * velocityMult;
             FollowCam.POI = projectile;
+            MissionDemolition.ShotFired();
+            ProjectileLine.S.poi = projectile;
             projectile = null;
         }
 	}
